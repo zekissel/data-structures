@@ -124,6 +124,7 @@ int get_chain (Chain* cur, char* key) {
 int size (Hashset* h) {
     if (!h) return -1;
     return (int)h->entries;
+    // broken; the values at memory address allocated for entries is random
 }
 
 int hash_key (char* key) {
