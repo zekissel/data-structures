@@ -1,3 +1,3 @@
 # data-structures
 
-repo to test different data structures in different languages
+personal repo to test generic structures
