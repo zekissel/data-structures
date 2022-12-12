@@ -1,10 +1,10 @@
-#include "hashset.h"
+#include "hashmap.h"
 
-Hashset* init_set (size_t size) {
+HashMap* init_set (size_t size) {
 
     if ((long)size <= 0) return NULL;
 
-    Hashset* h = (Hashset*)calloc(1, sizeof(Hashset));
+    HashMap* h = (HashMap*)calloc(1, sizeof(HashMap));
     if (!h) return NULL;
 
     h->items = (Item*)calloc(size, sizeof(Item));
@@ -19,7 +19,7 @@ Hashset* init_set (size_t size) {
     return h;
 }
 
-Hashset* put (Hashset* h, char* key, int value) {
+HashMap* put (HashMap* h, char* key, int value) {
     
     int index = hash_key(key) % (int)h->capacity;
     Item* map = h->items;
@@ -93,7 +93,7 @@ Chain* collide (Chain* node, char* key, int value) {
     return node;
 }
 
-int get (Hashset* h, char* key) {
+int get (HashMap* h, char* key) {
 
     int index = hash_key(key) % (int)h->capacity;
 
@@ -121,7 +121,7 @@ int get_chain (Chain* cur, char* key) {
     }
 }
 
-int size (Hashset* h) {
+int size (HashMap* h) {
     if (!h) return -1;
     return (int)h->entries;
     // broken; the values at memory address allocated for entries is random
@@ -141,7 +141,7 @@ int hash_key (char* key) {
     return ind;
 }
 
-void destroy (Hashset* h) {
+void destroy (HashMap* h) {
     if (h) {
         Item* tray = h->items;
 
@@ -165,7 +165,7 @@ void free_chain (Chain* node) {
     free(node);
 }
 
-void debug (Hashset* h) {
+void debug (HashMap* h) {
     if (!h) return;
 
     Item* map = h->items;

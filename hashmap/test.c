@@ -1,9 +1,9 @@
 #include <stdio.h>
-#include "hashset.c"
+#include "hashmap.c"
 
 int main () {
 
-    Hashset* test = init_set(10);
+    HashMap* test = init_set(10);
     test = put(test, "hello", 5);
     test = put(test, "test", 10);
     test = put(test, "test2", 20);

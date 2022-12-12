@@ -15,27 +15,27 @@ typedef struct _Item {
     struct _Chain* next;
 } Item;
 
-typedef struct _Hashset {
+typedef struct _HashMap {
     Item* items;
     size_t entries;
     size_t capacity;
-} Hashset;
+} HashMap;
 
 
-Hashset* init_set(size_t size);
+HashMap* init_set(size_t size);
 
-void destroy(Hashset* h);
+void destroy(HashMap* h);
 
 
-Hashset* put(Hashset* h, char* key, int value);
+HashMap* put(HashMap* h, char* key, int value);
 
 Chain* collide (Chain* node, char* key, int value);
 
-int get(Hashset* h, char* key);
+int get(HashMap* h, char* key);
 
 int get_chain (Chain* node, char* key);
 
-int size (Hashset* h);
+int size (HashMap* h);
 
 
 int hash_key(char* key);
@@ -44,6 +44,6 @@ void free_chain(Chain* node);
 
 int max(int num1, int num2) {return num1 > num2 ? num1 : num2;}
 
-void debug(Hashset* h);
+void debug(HashMap* h);
 
 void debug_tree(Chain* node);
