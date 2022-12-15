@@ -10,8 +10,13 @@ int main () {
     test.add("testable");
     
     std::vector<std::string> collection = test.collect();
-
     for (auto w : collection) std::cout << w << std::endl;
+    std::cout << '\n';
+
+    test.remove("test");
+
+    std::vector<std::string> collection2 = test.collect();
+    for (auto w : collection2) std::cout << w << std::endl;
 
     return 0;
 }

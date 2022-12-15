@@ -21,22 +21,24 @@ public:
         Path branch;
 
         Node(const char val);
+        ~Node();
     };
 
 
     PTree();
 
     void add(std::string word);
-    void rec_add (PTree::Node* cur, std::string word, int index);
+    void rec_add (Node* cur, std::string word, int index);
 
     void remove(std::string word);
-    void rec_remove(PTree::Node* cur, std::string word, int index);
+    void rec_remove(Node* cur);
+    Node* get_end (Node* cur, std::string word, int index);
 
     bool contains(std::string word);
-    bool rec_contains (PTree::Node* cur, std::string word, int index);
+    bool rec_contains (Node* cur, std::string word, int index);
 
     std::vector<std::string> collect();
-    void traverse(PTree::Node* cur, std::vector<std::string>& words, std::string word);
+    void traverse(Node* cur, std::vector<std::string>& words, std::string word);
 
 private:
 
