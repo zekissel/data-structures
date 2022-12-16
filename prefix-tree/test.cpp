@@ -17,6 +17,9 @@ int main () {
 
     std::vector<std::string> collection2 = test.collect();
     for (auto w : collection2) std::cout << w << std::endl;
+    std::cout << '\n';
+
+    std::cout << test.size();
 
     return 0;
 }

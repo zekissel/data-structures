@@ -89,6 +89,15 @@ bool PTree::rec_contains (PTree::Node* cur, std::string word, int index) {
 }
 
 
+bool PTree::empty () {
+    return entries == 0;
+}
+
+size_t PTree::size () {
+    return entries;
+}
+
+
 // Gather all saved words
 std::vector<std::string> PTree::collect() {
 
@@ -115,6 +124,8 @@ void PTree::traverse(PTree::Node* cur, std::vector<std::string>& words, std::str
 // Remove word
 void PTree::remove (std::string word) {
     PTree::Node* end = get_end(root->branch.forward, word, 0);
+    if (!end) return;
+    this->entries--;
     PTree::rec_remove(end);
 }
     
