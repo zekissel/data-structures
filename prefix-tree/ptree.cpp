@@ -14,14 +14,14 @@ PTree::Node::~Node () {
 }
 
 // Tree constructor
-PTree::PTree () : size(0) {
+PTree::PTree () : entries(0) {
     root = new PTree::Node('[');
 }
 
 // Tree add
 void PTree::add (std::string word) {
     if (contains(word)) return;
-    this->size++;
+    this->entries++;
     PTree::rec_add(root, word, 0);
 }
 

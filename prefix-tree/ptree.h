@@ -37,13 +37,16 @@ public:
     bool contains(std::string word);
     bool rec_contains (Node* cur, std::string word, int index);
 
+    bool empty();
+    size_t size();
+
     std::vector<std::string> collect();
     void traverse(Node* cur, std::vector<std::string>& words, std::string word);
 
 private:
 
     Node* root;
-    size_t size;
+    size_t entries;
 };
 
 #endif // PTREE
