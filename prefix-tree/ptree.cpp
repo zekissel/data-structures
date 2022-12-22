@@ -18,6 +18,10 @@ PTree::PTree () : entries(0) {
     root = new PTree::Node('[');
 }
 
+PTree::~PTree () {
+    
+}
+
 // Tree add
 void PTree::add (std::string word) {
     if (contains(word)) return;
